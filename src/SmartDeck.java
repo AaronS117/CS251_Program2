@@ -1,12 +1,12 @@
 public class SmartDeck {
-    private boolean cardsDealt;
+    private int cardsDealt;
 
     // getter class
-    public boolean getCardsDealt() {
+    public int getCardsDealt() {
         return cardsDealt;
     }
     // setter class
-    public void setCardsDealt(boolean cardsDealt) {
+    public void setCardsDealt(int cardsDealt) {
         this.cardsDealt = cardsDealt;
     }
 
