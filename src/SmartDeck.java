@@ -1,4 +1,15 @@
 public class SmartDeck {
+    private boolean cardsDealt;
+
+    // getter class
+    public boolean getCardsDealt() {
+        return cardsDealt;
+    }
+    // setter class
+    public void setCardsDealt(boolean cardsDealt) {
+        this.cardsDealt = cardsDealt;
+    }
+
     public static void initDeck(boolean[] deck)
     {
         // set the values of deck to indicate that they are all
@@ -15,7 +26,7 @@ public class SmartDeck {
 
         for (int i = 0; i < 51; i++)
         {
-            if (deck[i] == true){
+            if (deck[i]){
                 return false;
             }
         }
@@ -25,13 +36,13 @@ public class SmartDeck {
     public static int dealCard(boolean[] deck)
     {
         // returns a card (an int in the range 0 to 51) at random
-        // that has not been dealt since the deck was initialize
+        // that has not been dealt since the deck was initialized
         // via in Deck. Also notes (in deck) that this card is
         // no longer available.
 
         int a = (int) (Math.random()*(52));
-        if (deck[a] == false){
-            while (deck[a] == false){
+        if (!deck[a]){
+            while (!deck[a]){
                 a = (int) (Math.random()*(52));
             }
         }
@@ -88,7 +99,7 @@ public class SmartDeck {
             System.out.print(ten);
         }
         if (face == 10){
-            char jack = (char) face;
+            char jack;
             jack = 'J';
             System.out.print(jack);
         }
@@ -98,7 +109,7 @@ public class SmartDeck {
             System.out.print(queen);
         }
         if (face == 12){
-            char king = (char) face;
+            char king;
             king = 'K';
             System.out.print(king);
         }
@@ -107,22 +118,22 @@ public class SmartDeck {
         // Prints all the suits of the held values in intCard
         int suit = card / 13;
         if (suit == 0){
-            char club  = (char) suit;
+            char club;
             club = 'C';
             System.out.print(club);
         }
         if (suit == 1){
-            char diamond  = (char) suit;
+            char diamond;
             diamond = 'D';
             System.out.print(diamond);
         }
         if (suit == 2){
-            char heart  = (char) suit;
+            char heart;
             heart = 'H';
             System.out.print(heart);
         }
         if (suit == 3){
-            char spade  = (char) suit;
+            char spade;
             spade = 'S';
             System.out.print(spade);
         }

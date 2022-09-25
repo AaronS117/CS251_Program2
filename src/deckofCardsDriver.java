@@ -6,25 +6,25 @@ public class deckofCardsDriver {
         final int cardsPerRow = 8;
         int cardsThisRow = 0;
         int myCard;
-        Deck.initDeck(myDeck);
+        SmartDeck.initDeck(myDeck); // deck changeable
         System.out.println("\nHere is a shuffled deck ...\n");
-        while (!Deck.emptyDeck(myDeck))
+        while (!SmartDeck.emptyDeck(myDeck)) // deck changeable
         {
-            myCard = Deck.dealCard(myDeck);
+            myCard = SmartDeck.dealCard(myDeck); // deck changeable
             ++cardsThisRow;
             if (cardsThisRow <= cardsPerRow)
             {
-                Deck.printCard(myCard);
+                SmartDeck.printCard(myCard); // deck changeable
                 System.out.print(" ");
             }
             else
             {
                 System.out.println("");
                 cardsThisRow = 1;
-                Deck.printCard(myCard);
+                SmartDeck.printCard(myCard); // deck changeable
                 System.out.print(" ");
             }
         }
         System.out .println('\n');
-    }// End Main
-}
+    } // End Main
+} // End Driver class
