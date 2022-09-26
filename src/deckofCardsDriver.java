@@ -6,7 +6,7 @@ COMPSCI 251-401
 public class deckofCardsDriver {
     public static void main(String[] args)
     {
-        Deck myDeck = new Deck(); // deck changeable change Deck to SmartDeck or vice versa
+        SmartDeck myDeck = new SmartDeck(); // deck changeable change Deck to SmartDeck or vice versa
         final int cardsPerRow = 8;
         int cardsThisRow = 0;
         int myCard;
@@ -30,5 +30,6 @@ public class deckofCardsDriver {
             }
         }
         System.out .println('\n');
+        // System.out.println(myDeck.cardsDealt); <=== Test
     } // End Main
 } // End Driver class

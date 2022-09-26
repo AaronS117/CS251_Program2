@@ -2,7 +2,7 @@ public class SmartDeck {
     // Mandatory Instance Variables
     private boolean [] deck = new boolean[52];
     static int cardsDealt;
-
+    // At all times contains the number of cards dealt since that last call to initDeck()
     public void initDeck()
     {
         // set the values of deck to indicate that they are all
@@ -14,6 +14,7 @@ public class SmartDeck {
 
     public boolean emptyDeck()
     {
+        // No for loop
         // returns whether all the cards in the deck
         // have already been dealt.
 
@@ -37,7 +38,7 @@ public class SmartDeck {
             }
         }
         this.deck [a] = false;
-        cardsDealt++;
+        cardsDealt++; // Increment cardsDealt
         return a;
     }// end dealCard
     public static String cardToString(int card)
