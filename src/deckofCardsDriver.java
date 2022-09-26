@@ -1,27 +1,31 @@
+/***************
+Aaron Oropeza
+9/26/2022
+COMPSCI 251-401
+ **************/
 public class deckofCardsDriver {
     public static void main(String[] args)
     {
-        // Mandatory code copy
-        boolean[] myDeck = new boolean[52];
+        Deck myDeck = new Deck(); // deck changeable change Deck to SmartDeck or vice versa
         final int cardsPerRow = 8;
         int cardsThisRow = 0;
         int myCard;
-        SmartDeck.initDeck(myDeck); // deck changeable
+        myDeck.initDeck();
         System.out.println("\nHere is a shuffled deck ...\n");
-        while (!SmartDeck.emptyDeck(myDeck)) // deck changeable
+        while (!myDeck.emptyDeck())
         {
-            myCard = SmartDeck.dealCard(myDeck); // deck changeable
+            myCard = myDeck.dealCard();
             ++cardsThisRow;
             if (cardsThisRow <= cardsPerRow)
             {
-                SmartDeck.printCard(myCard); // deck changeable
+                myDeck.cardToString(myCard);
                 System.out.print(" ");
             }
             else
             {
                 System.out.println("");
                 cardsThisRow = 1;
-                SmartDeck.printCard(myCard); // deck changeable
+                myDeck.cardToString(myCard);
                 System.out.print(" ");
             }
         }

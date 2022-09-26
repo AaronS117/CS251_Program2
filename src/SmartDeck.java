@@ -1,39 +1,29 @@
 public class SmartDeck {
-    private int cardsDealt;
+    // Mandatory Instance Variables
+    private boolean [] deck = new boolean[52];
+    static int cardsDealt;
 
-    // getter class
-    public int getCardsDealt() {
-        return cardsDealt;
-    }
-    // setter class
-    public void setCardsDealt(int cardsDealt) {
-        this.cardsDealt = cardsDealt;
-    }
-
-    public static void initDeck(boolean[] deck)
+    public void initDeck()
     {
         // set the values of deck to indicate that they are all
         // present - not dealt yet.
 
-        for (int i = 0; i <= 51; i++)
-            deck[i] = true;
+        for (int i = 0; i < this.deck.length; i++)
+            this.deck[i] = true;
     }// end initDeck
 
-    public static boolean emptyDeck(boolean[] deck)
+    public boolean emptyDeck()
     {
         // returns whether all the cards in the deck
         // have already been dealt.
 
-        for (int i = 0; i < 51; i++)
-        {
-            if (deck[i]){
-                return false;
-            }
-        }
-        return true;
+        if (cardsDealt < this.deck.length)
+            return false;
+        else
+            return true;
     }// end emptyDeck
 
-    public static int dealCard(boolean[] deck)
+    public int dealCard()
     {
         // returns a card (an int in the range 0 to 51) at random
         // that has not been dealt since the deck was initialized
@@ -41,15 +31,16 @@ public class SmartDeck {
         // no longer available.
 
         int a = (int) (Math.random()*(52));
-        if (!deck[a]){
-            while (!deck[a]){
+        if (!this.deck[a]){
+            while (!this.deck[a]){
                 a = (int) (Math.random()*(52));
             }
         }
-        deck [a] = false;
+        this.deck [a] = false;
+        cardsDealt++;
         return a;
     }// end dealCard
-    public static void printCard(int card)
+    public static String cardToString(int card)
     {
         // given a card (an int in the range 0 to 51) prints
         // an appropriate representation of this card based
@@ -59,7 +50,7 @@ public class SmartDeck {
         // Prints all the Faces of the held values in intCard
         int face = card % 13;
         if (face == 0){
-            char ace = 'A';
+            String ace = "A";
             System.out.print(ace);
         }
         if (face == 1){
@@ -99,18 +90,15 @@ public class SmartDeck {
             System.out.print(ten);
         }
         if (face == 10){
-            char jack;
-            jack = 'J';
+            String jack = "J";
             System.out.print(jack);
         }
         if (face == 11){
-            char queen;
-            queen = 'Q';
+            String queen = "Q";
             System.out.print(queen);
         }
         if (face == 12){
-            char king;
-            king = 'K';
+            String king = "K";
             System.out.print(king);
         }
 
@@ -118,24 +106,21 @@ public class SmartDeck {
         // Prints all the suits of the held values in intCard
         int suit = card / 13;
         if (suit == 0){
-            char club;
-            club = 'C';
+            String club = "C";
             System.out.print(club);
         }
         if (suit == 1){
-            char diamond;
-            diamond = 'D';
+            String diamond = "D";
             System.out.print(diamond);
         }
         if (suit == 2){
-            char heart;
-            heart = 'H';
+            String heart = "H";
             System.out.print(heart);
         }
         if (suit == 3){
-            char spade;
-            spade = 'S';
+            String spade = "S";
             System.out.print(spade);
         }
+        return String.valueOf(card);
     } // end printCard
 }
